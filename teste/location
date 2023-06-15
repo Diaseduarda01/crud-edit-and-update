@@ -1,0 +1,14 @@
+ <div class="location">
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" placeholder="Digite o CEP">
+            <button type="button" onclick="buscarEndereco()">Buscar</button>
+            
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" readonly>
+            
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" readonly>
+            
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" readonly>
+          </div>
