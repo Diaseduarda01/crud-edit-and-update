@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Escolha de pacote</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="shortcut icon" href="imagem/logo_telegram_airplane_air_plane_paper_airplane_icon_143170.png" type="image/x-icon">
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="imagem/icon_aviao.png" type="image/x-icon">
     <link rel="stylesheet" href="BaseBoard.css">
     <link rel="stylesheet" href="Calendario.js">
-    <link rel="stylesheet" href="from_escolha.css">
+    <link rel="stylesheet" href="form_escolha.css">
     <link rel="stylesheet" href="txt.css">
 </head>
 <body>
@@ -30,10 +30,10 @@
       <span class="logo-name">Dreams tourism</span>
     </div>
 
-12    <div class="sidebar-content">
+   <div class="sidebar-content">
       <ul class="lists">
         <li class="list">
-          <a href="#" class="nav-link">
+          <a href="inicio.html" class="nav-link">
             <i class="bx bx-home-alt icon"></i>
             <span class="link">Início</span>
           </a>
@@ -83,45 +83,75 @@
 
 
 
-    <form action="" id="viagemForm">
-      <div class="container">
+<form action="" method="" id="viagemForm">
+  <div class="container">
+  <h5 class="from-txt">Escolha de passagem</h5>
+  
+    
+    <label for="embarque">Opção de Embarque:</label>
+    <select id="embarque" name="embarque" required>
+      <option disabled selected>Selecione um estado</option>
+      <option value="embarque-">Bahia</option>
+      <option value="embarque-">Rio de Janeiro</option>
+      <option value="embarque-">Floripa</option>
+      <option value="embarque-">Fortaleza</option>
+      <option value="embarque-">Natal</option>
+      <!-- Adicione mais opções de estados aqui -->
+      
+    </select><br>
+  
+    <label for="desembarque">Opção de Desembarque:</label>
+    <select id="desembarque" name="desembarque" required>
+      <option disabled selected>Selecione um estado</option>
+      <option value="embarque-">Bahia</option>
+      <option value="embarque-">Rio de Janeiro</option>
+      <option value="embarque-">Floripa</option>
+      <option value="embarque-">Fortaleza</option>
+      <option value="embarque-">Natal</option>
+      <!-- Adicione mais opções de estados aqui -->
+    </select><br>
 
-      <h5 class="from-txt">Escolha de passagem</h5>
-      <label for="cbx" class="cbx">
-        <div class="checkmark">
-        <input type="checkbox" id="cbx" checked="checked">
-        <div class="flip">
-          <div class="front"></div>
-            <div class="back">
-              <svg viewBox="0 0 16 14" height="14" width="16">
-                <path d="M2 8.5L6 12.5L14 1.5"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </label>
-        <div class="calendar">
-            <div class="input-box">
-            <label for="ida">Data de Ida:</label>
-            <input type="date" id="ida" name="ida">
-            
-            
-            <label for="volta">Data de Volta:</label>
-            <input type="date" id="volta" name="volta">
-          </div>
+
+  <div id="campo_ida" style="display: none;">
+    <label for="horario_ida">Horário de ida:</label>
+    <input type="time" id="horario_ida" name="horario_ida"><br>
+  </div>
+
+  <div id="campo_volta" style="display: none;">
+    <label for="horario_volta">Horário de volta:</label>
+    <input type="time" id="horario_volta" name="horario_volta"><br>
+  </div>
+ 
+      <label for="ida_volta">Opção:</label>
+      <select id="ida_volta" name="ida_volta" onchange="mostrarCamposHorario()" required>
+        <option value="ida">Somente ida</option>
+        <option value="ida_volta">Ida e volta</option>
+      </select><br>
+    
+      <div id="campo_ida" style="display: none;">
+        <label for="horario_ida">Horário de ida:</label>
+        <input type="time" id="horario_ida" name="horario_ida"><br>
       </div>
-          
-          <div class="time">
-            <label for="hora">Horário da Viagem:</label>
-            <input type="time" id="hora" name="hora">
-          </div>
+    
+      <div id="campo_volta" style="display: none;">
+        <label for="horario_volta">Horário de volta:</label>
+        <input type="time" id="horario_volta" name="horario_volta"><br>
+      </div>
+    <div class="calendar">
+      <div class="input-box">
+      <label for="ida">Data de Ida:</label>
+      <input type="date" id="ida" name="ida">
 
-         
-          
-          <!-- <button class="button" type="submit">Confirmar</button> -->
+      <label for="volta">Data de Volta:</label>
+      <input type="date" id="volta" name="volta">
+    </div>
+    </div>
+   
         </div>
+        <a href="pg_compra.html">
         <div class="container">
-          <button class="button" type="submit">Confirmar</button>
+          <button class="button" type="submit">Continuar comprando</button>
+        </a>
         </div>
     </form>
 
@@ -176,6 +206,55 @@
           </div>
         </div>
       </div>
+
+      <script>
+        function mostrarCamposHorario() {
+          var selectIdaVolta = document.getElementById("ida_volta");
+          var campoVolta = document.getElementById("campo_volta");
+          var campoIda = document.getElementById("campo_ida");
+        
+          if (selectIdaVolta.value === "ida") {
+            campoVolta.style.display = "none";
+            campoIda.style.display = "block";
+          } else if (selectIdaVolta.value === "ida_volta") {
+            campoVolta.style.display = "block";
+            campoIda.style.display = "block";
+          } else {
+            campoVolta.style.display = "none";
+            campoIda.style.display = "none";
+          }
+        }
+        </script>
+              
+              <script>
+              function mostrarCamposVolta() {
+                var selectIdaVolta = document.getElementById("ida_volta");
+                var campoVolta = document.getElementById("campo_volta");
+                var campoIda = document.getElementById("campo_ida");
+              
+                if (selectIdaVolta.value === "ida_volta") {
+                  campoVolta.style.display = "block";
+                  campoIda.style.display = "block";
+                } else {
+                  campoVolta.style.display = "none";
+                  campoIda.style.display = "block";
+                }
+              }
+              </script>
+              
+              <script>
+              function mostrarCampoVolta() {
+                var selectIdaVolta = document.getElementById("ida_volta");
+                var campoVolta = document.getElementById("campo_volta");
+              
+                if (selectIdaVolta.value === "ida_volta") {
+                  campoVolta.style.display = "block";
+                } else {
+                  campoVolta.style.display = "none";
+                }
+              }
+              </script>
+
     <script src="sidebar.js"></script>
         <script src="Calendario.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

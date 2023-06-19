@@ -39,3 +39,26 @@
     opacity: 1;
     right: 0;
 }
+
+.botao {
+    border-radius: 10px;
+    background-color: #ac8ee7;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    text-decoration: none;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    left: 45%;
+    top: 25px;
+    font : inherit;
+    cursor : pointer; 
+    text-decoration: none;
+  }
+
+  
